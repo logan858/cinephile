@@ -10,5 +10,9 @@
       <a href="/">Main</a>
       <a href="/show">Watch Lists</a>
       <a href="/search">Search Films</a>
-      <a href="/users">Account</a>
+        <% if (user) { %>
+          <a href="/logout">Log Out (<%= users[0].username%>)</a>
+        <% } else { %>
+          <a href="/auth/google">Login</a>
+        <% } %>
     </nav>
