@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost/flights", {
+mongoose.connect("mongodb://localhost/Users", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true;
+    useCreateIndex: true,
 });
 const db = mongoose.connection;
 db.on("connected", function() {
