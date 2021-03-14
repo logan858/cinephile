@@ -11,12 +11,6 @@ router.get("/search", moviesCtrl.renderSearch)
 
 
 router.get("/search/create", moviesCtrl.search)
-// .original_title << main title
-// .overview << synopsis
-// .release_date, .runtime, .poster_path
-// .id << search criteria
-
-
 
 
 //oauth routes
