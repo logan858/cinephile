@@ -2,9 +2,10 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
-var logger = require('morgan');
 let session = require("express-session")
 let passport = require("passport")
+var logger = require('morgan');
+
 
 require("dotenv").config();
 

@@ -1,6 +1,33 @@
 <%- include("./partials/head") %>
 
     <h3>Watch Lists</h3>
-
+    <% if(user.directors.length) { %>
+        <div>Director</div>
+    <% } else { %>
+        <div>No directors</div> 
+    <% } %>
+    <% if(user.editors.length) { %>
+        <div>Editor</div>
+    <% } else { %>
+        <div>No Editors</div> 
+    <% } %>
+    <% if(user.cinematographers.length) { %>
+        <div>Cinematographer</div>
+    <% } else { %>
+        <div>No Cinematographers</div> 
+    <% } %>
+    <% if(user.writers.length) { %>
+        <div>Writer</div>
+    <% } else { %>
+        <div>No Writers</div>
+    <% } %> 
+    <% if(user.composers.length) { %>
+        <div>Composer</div>
+    <% } else { %>
+        <div>No Composers</div>
+    <% } %> 
+    
+    <%= user %>
+    
 </body>
 </html>
