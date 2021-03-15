@@ -1,0 +1,30 @@
+<%- include("./partials/head") %>
+<h3>show page:</h3>
+
+Title: <%= body.original_title %><br>
+Release date: <%= body.release_date %><br>
+Runtime: <%= body.runtime %> minutes<br>
+Synopsis: <%= body.overview %><br>
+<hr>
+
+<form method="POST" action="/show/<%=body.id%>">
+    Name: <input name="name" type="text" required><br>
+    Directing: <input name="director" type="text" required><br>
+    Editing: <input name="editor" type="text" required><br>
+    Cinematography: <input name="cinematographer" type="text" required><br>
+    Writing: <input name="writer" type="text" required><br>
+    Composing: <input name="composer" type="text" required><br>
+    <br>
+    Add to list: 
+    <select name="category">
+        <option value="director">director</option>
+        <option value="editor">editor</option>
+        <option value="cinematographer">cinematographer</option>
+        <option value="writer">writer</option>
+        <option value="composer">composer</option>
+    </select>
+    <button type="subtmit">Submit</button>
+</form>
+
+</body>
+</html>

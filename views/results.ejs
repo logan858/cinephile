@@ -1,9 +1,11 @@
 <%- include("./partials/head") %>
 
     <h3>search results</h3>
-    <div>list</div>
-    <% for(i of data) {  %>
-    <div><%= i.original_title %></div>
-    <% } %>
+        <div id="results">
+        <% for(i of data) {  %>
+            <% let year = new Date(i.release_date) %>
+        <div><a href="/show/<%=i.id%>"><%= i.original_title %> (<%=year.getFullYear()%>)</a></div>
+        <% } %>
+    </div>
 </body>
 </html>
