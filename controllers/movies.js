@@ -48,12 +48,27 @@ async function search(req, res) {
 async function showPage(req, res) {
     let results = await fetch(BASE_URL_ID + req.params.id + API_KEY_ID)
     let body = await results.json()
-    console.log(body)
     res.render("show", {
         body: body,
         user: req.user
     })
 }
 async function createList(req, res) {
-    console.log("success")
+    //console.log(req.body)
+    let userId = await User.findById(req.user.id)
+    console.log(userId)
+    await List.create({
+        category: req.body.category,
+        name: req.body.name,
+        image: null,
+        quote: null,
+        user: userId.id,
+    })
+    
+    console.log("teeeest")
+
+    res.render("index", {
+        user: req.user
+    })
+
 }

@@ -9,7 +9,7 @@ router.get('/', moviesCtrl.index)
 router.get("/show", isLoggedIn, moviesCtrl.lists)
 router.get("/search", isLoggedIn, moviesCtrl.renderSearch)
 router.get("/show/:id", isLoggedIn, moviesCtrl.showPage)
-router.post("/show/:id/", isLoggedIn,moviesCtrl.createList)
+router.post("/show/:id/", isLoggedIn, moviesCtrl.createList)
 
 router.get("/search/create", moviesCtrl.search)
 
