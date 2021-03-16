@@ -2,81 +2,61 @@
 
 <h3 id="headings">Watch Lists</h3>
 <main>
-    <% if(lists.length) { %>
-        <div class="role" id="director">
-            Director
-        </div>
+    <div class="role" id="director">
+        <span>Directing</span>
+    </div>
+    <div class="role" id="editor">
+        <span>Editing</span>
+    </div>
+    <div class="role" id="cinematographer">
+        <span>Cinematography</span>
+    </div>
+    <div class="role" id="writer">
+        <span>Writing</span>
+    </div>
+    <div class="role" id="composer">
+        <span>Composing</span>
+    </div>
 
-        <div class="flex">
+    <div class="flex">
         <% for(i of lists) { %> 
             <% if(i.category === "director") { %> 
-            <div class="dname">
-                <%= i.name %>
+            <div class="names dname"><span><%= i.name %></span></div>
+
+            <div>
+                <% for(let j of i.films) { %>
+                    <span><%= j.title %></span>
+                <% } %>
             </div>
+
             <% } %>
         <% } %>
-        </div>
-        <br>
-
-        <div class="role" id="editor">
-            Editor
-        </div>
-        <div class="flex">
+        
         <% for(i of lists) { %> 
             <% if(i.category === "editor") { %>  
-            <div class="ename">
-                <%= i.name %>                    
-            </div>
+            <div class="names ename"><span><%= i.name %></span></div>                    
             <% } %>
         <% } %>
-        </div>
-        <br>
         
-        <div class="role" id="cinematographer">
-            Cinematographer
-        </div>
-        <div class="flex">
         <% for(i of lists) { %> 
             <% if(i.category === "cinematographer") { %>
-            <div class="cname">
-                <%= i.name %>
-            </div>
+            <div class="names cname"><span><%= i.name %></span></div>
             <% } %>
         <% } %>
-        </div>
-        <br>
-
-        <div class="role" id="writer">
-            Writer
-        </div>
-        <div class="flex">
+       
         <% for(i of lists) { %> 
             <% if(i.category === "writer") { %>
-            <div class="wname">
-                <%= i.name %>
-            </div>
+            <div class="names wname"><span><%= i.name %></span></div>
             <% } %>
         <% } %>
-        </div>
-        <br>
-
-        <div class="role" id="composer">
-            Composer
-        </div>
-        <div class="flex">
+        
         <% for(i of lists) { %> 
             <% if(i.category === "composer") { %>
-            <div class="coname">
-                <%= i.name %>
-            </div>
+            <div class="names coname"><span><%= i.name %></span></div>
             <% } %>
         <% } %>
-        <br>
-        </div>
-        
-    <% } else { %>
-        <div>You have not created any lists ye!</div> 
-    <% } %>
+    </div>
+   
 </main>
 <script src="/javascripts/scripts.js"></script>
 </body>

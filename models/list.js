@@ -6,10 +6,6 @@ const filmSchema = new Schema ({
     releasedate: Number,
     runtime: Number,
     synopsis: String,
-    attachment: {
-        type: Schema.Types.ObjectId,
-        ref: "List"
-    },
     director: String,
     editor: String,
     cinematographer: String,
@@ -29,7 +25,7 @@ const listSchema = new Schema ({
         type: Schema.Types.ObjectId,
         ref: "User",
     },
-    films: [filmSchema]
+    films: [filmSchema],
 }, {
     timestamps: true
 })

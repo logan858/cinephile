@@ -24,8 +24,6 @@ function index(req, res) {
 }
 async function lists(req, res) {
     let lists = await List.find({user: req.user._id})
-    // console.log(lists)
-
     res.render("posts", {
         user: req.user,
         lists: lists,
@@ -46,10 +44,6 @@ async function search(req, res) {
         user: req.user,
     })
 }
-// .original_title << main title
-// .overview << synopsis
-// .release_date, .runtime, .poster_path
-// .id << search criteria
 async function showPage(req, res) {
     let results = await fetch(BASE_URL_ID + req.params.id + API_KEY_ID)
     let body = await results.json()
@@ -58,15 +52,65 @@ async function showPage(req, res) {
         user: req.user
     })
 }
+
+
+//function that creates lists, names, and embeds film titles under those listed names
 async function createList(req, res) {
     let userId = await User.findById(req.user.id)
-    await List.create({
-        category: req.body.category,
-        name: req.body.name,
-        image: null,
-        quote: null,
-        user: userId._id,
-    })
+    let lists = await List.find({user: req.user._id})
+    let checker = x => x.some(y => y.name === req.body.name);
+
+    //if list entry matches no previous ones, then:
+    if(checker(lists) === false) {
+        let newList = await List.create({
+            category: req.body.category,
+            name: req.body.name,
+            image: null,
+            quote: null,
+            user: userId._id,
+        })
+        let results = await fetch(BASE_URL_ID + req.params.id + API_KEY_ID)
+        let movie = await results.json()
+        let year = new Date(movie.release_date)
+        let listObj = {
+            title: movie.original_title,
+            releasedate: year.getFullYear(),
+            runtime: movie.runtime,
+            synopsis: movie.overview,
+            director: req.body.director,
+            editor: req.body.editor,
+            cinematographer: req.body.cinematographer,
+            writer: req.body.writer,
+            composer: req.body.composer,
+        }
+        newList.films.push(listObj)
+        await newList.save()
+
+    // if names are not matched to a previous list entry, then:
+    } else {
+        let matchedName = await List.find({
+            name: req.body.name,
+            user: userId._id
+        });
+        console.log(matchedName)
+        let results = await fetch(BASE_URL_ID + req.params.id + API_KEY_ID)
+        let movie = await results.json()
+        let year = new Date(movie.release_date)
+        let listObj = {
+            title: movie.original_title,
+            releasedate: year.getFullYear(),
+            runtime: movie.runtime,
+            synopsis: movie.overview,
+            director: req.body.director,
+            editor: req.body.editor,
+            cinematographer: req.body.cinematographer,
+            writer: req.body.writer,
+            composer: req.body.composer,
+         }
+        matchedName[0].films.push(listObj)
+        await matchedName[0].save()
+    }
+
     res.render("index", {
         user: req.user
     })
