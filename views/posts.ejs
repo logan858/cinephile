@@ -1,33 +1,83 @@
 <%- include("./partials/head") %>
 
-    <h3>Watch Lists</h3>
-    <% if(user.directors.length) { %>
-        <div>Director</div>
+<h3 id="headings">Watch Lists</h3>
+<main>
+    <% if(lists.length) { %>
+        <div class="role" id="director">
+            Director
+        </div>
+
+        <div class="flex">
+        <% for(i of lists) { %> 
+            <% if(i.category === "director") { %> 
+            <div class="dname">
+                <%= i.name %>
+            </div>
+            <% } %>
+        <% } %>
+        </div>
+        <br>
+
+        <div class="role" id="editor">
+            Editor
+        </div>
+        <div class="flex">
+        <% for(i of lists) { %> 
+            <% if(i.category === "editor") { %>  
+            <div class="ename">
+                <%= i.name %>                    
+            </div>
+            <% } %>
+        <% } %>
+        </div>
+        <br>
+        
+        <div class="role" id="cinematographer">
+            Cinematographer
+        </div>
+        <div class="flex">
+        <% for(i of lists) { %> 
+            <% if(i.category === "cinematographer") { %>
+            <div class="cname">
+                <%= i.name %>
+            </div>
+            <% } %>
+        <% } %>
+        </div>
+        <br>
+
+        <div class="role" id="writer">
+            Writer
+        </div>
+        <div class="flex">
+        <% for(i of lists) { %> 
+            <% if(i.category === "writer") { %>
+            <div class="wname">
+                <%= i.name %>
+            </div>
+            <% } %>
+        <% } %>
+        </div>
+        <br>
+
+        <div class="role" id="composer">
+            Composer
+        </div>
+        <div class="flex">
+        <% for(i of lists) { %> 
+            <% if(i.category === "composer") { %>
+            <div class="coname">
+                <%= i.name %>
+            </div>
+            <% } %>
+        <% } %>
+        <br>
+        </div>
+        
     <% } else { %>
-        <div>No directors</div> 
+        <div>You have not created any lists ye!</div> 
     <% } %>
-    <% if(user.editors.length) { %>
-        <div>Editor</div>
-    <% } else { %>
-        <div>No Editors</div> 
-    <% } %>
-    <% if(user.cinematographers.length) { %>
-        <div>Cinematographer</div>
-    <% } else { %>
-        <div>No Cinematographers</div> 
-    <% } %>
-    <% if(user.writers.length) { %>
-        <div>Writer</div>
-    <% } else { %>
-        <div>No Writers</div>
-    <% } %> 
-    <% if(user.composers.length) { %>
-        <div>Composer</div>
-    <% } else { %>
-        <div>No Composers</div>
-    <% } %> 
-    
-    <%= user %>
-    
+</main>
+<script src="/javascripts/scripts.js"></script>
 </body>
 </html>

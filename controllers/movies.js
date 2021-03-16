@@ -1,5 +1,6 @@
 const { NotExtended } = require("http-errors");
 const User = require("../models/user");
+const List = require("../models/list");
 
 BASE_URL = "https://api.themoviedb.org/3/search/movie"
 API_KEY = "?api_key=1671706fa83059c7ac996122901fc15c&query="
@@ -21,9 +22,13 @@ function index(req, res) {
         user: req.user
     })
 }
-function lists(req, res) {
+async function lists(req, res) {
+    let lists = await List.find({user: req.user._id})
+    // console.log(lists)
+
     res.render("posts", {
         user: req.user,
+        lists: lists,
     })
 }
 function renderSearch(req, res) {
@@ -54,19 +59,14 @@ async function showPage(req, res) {
     })
 }
 async function createList(req, res) {
-    //console.log(req.body)
     let userId = await User.findById(req.user.id)
-    console.log(userId)
     await List.create({
         category: req.body.category,
         name: req.body.name,
         image: null,
         quote: null,
-        user: userId.id,
+        user: userId._id,
     })
-    
-    console.log("teeeest")
-
     res.render("index", {
         user: req.user
     })
