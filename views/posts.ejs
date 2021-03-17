@@ -56,6 +56,7 @@
                 <div class="films">
                     <% for(let j of i.films) { %>
                         <span><%= j.title %> (<%= j.releasedate%>)</span><br>
+                        <span class="always-hidden"><%= j %></span>
                     <% } %>
                 </div>
             </div>
@@ -69,6 +70,7 @@
                 <div class="films">
                     <% for(let j of i.films) { %>
                         <span><%= j.title %> (<%= j.releasedate%>)</span><br>
+                        <span class="always-hidden"><%= j %></span>
                     <% } %>
                 </div>
             </div>
@@ -82,6 +84,7 @@
                 <div class="films">
                     <% for(let j of i.films) { %>
                         <span><%= j.title %> (<%= j.releasedate%>)</span><br>
+                        <span class="always-hidden"><%= j %></span>
                     <% } %>
                 </div>
             </div>
@@ -93,6 +96,10 @@
         <div class="film-details-box-two"></div>
         <div class="film-details-box-three"></div>
         <div class="film-details-box-four"></div>
+        <form id="rmv-btn" method="POST" action="">
+            <button type="submit">Watched</button>
+            <button type="submit">Remove from list</button>
+        </form>
     </div> 
     
     
