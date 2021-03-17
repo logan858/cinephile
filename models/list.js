@@ -11,6 +11,7 @@ const filmSchema = new Schema ({
     cinematographer: String,
     writer: String,
     composer: String,
+    poster: String,
 })
 
 const listSchema = new Schema ({

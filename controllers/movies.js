@@ -82,6 +82,7 @@ async function createList(req, res) {
             cinematographer: req.body.cinematographer,
             writer: req.body.writer,
             composer: req.body.composer,
+            poster: movie.poster_path
         }
         newList.films.push(listObj)
         await newList.save()
@@ -106,6 +107,7 @@ async function createList(req, res) {
             cinematographer: req.body.cinematographer,
             writer: req.body.writer,
             composer: req.body.composer,
+            poster: movie.poster_path
          }
         matchedName[0].films.push(listObj)
         await matchedName[0].save()

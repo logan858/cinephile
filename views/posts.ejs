@@ -25,40 +25,79 @@
                 <span><%= i.name %></span>
                 <div class="films">
                     <% for(let j of i.films) { %>
-                        <span><%= j.title %> (<%= j.releasedate%>)</span><br>
-                    <% } %>
+                        <span><%= j.title %> (<%= j.releasedate%>)</span><br> 
+                        <span class="always-hidden"><%= j %></span>
+                    <% } %>  
                 </div>
             </div>
-
             <% } %>
         <% } %>
         
+        
+
         <% for(i of lists) { %> 
             <% if(i.category === "editor") { %>  
-            <div class="names ename"><span><%= i.name %></span></div>                    
+            <div class="names ename">
+                <span><%= i.name %></span>
+                <div class="films">
+                    <% for(let j of i.films) { %>
+                        <span><%= j.title %> (<%= j.releasedate%>)</span><br>
+                        <span class="always-hidden"><%= j %></span>
+                    <% } %>
+                </div>
+            </div>                    
             <% } %>
         <% } %>
         
         <% for(i of lists) { %> 
             <% if(i.category === "cinematographer") { %>
-            <div class="names cname"><span><%= i.name %></span></div>
+            <div class="names cname">
+                <span><%= i.name %></span>
+                <div class="films">
+                    <% for(let j of i.films) { %>
+                        <span><%= j.title %> (<%= j.releasedate%>)</span><br>
+                    <% } %>
+                </div>
+            </div>
             <% } %>
         <% } %>
        
         <% for(i of lists) { %> 
             <% if(i.category === "writer") { %>
-            <div class="names wname"><span><%= i.name %></span></div>
+            <div class="names wname">
+                <span><%= i.name %></span>
+                <div class="films">
+                    <% for(let j of i.films) { %>
+                        <span><%= j.title %> (<%= j.releasedate%>)</span><br>
+                    <% } %>
+                </div>
+            </div>
             <% } %>
         <% } %>
         
         <% for(i of lists) { %> 
             <% if(i.category === "composer") { %>
-            <div class="names coname"><span><%= i.name %></span></div>
+            <div class="names coname">
+                <span><%= i.name %></span>
+                <div class="films">
+                    <% for(let j of i.films) { %>
+                        <span><%= j.title %> (<%= j.releasedate%>)</span><br>
+                    <% } %>
+                </div>
+            </div>
             <% } %>
         <% } %>
     </div>
-   
+    <div id="film-details">
+        <div class="film-details-box-one"></div>
+        <div class="film-details-box-two"></div>
+        <div class="film-details-box-three"></div>
+        <div class="film-details-box-four"></div>
+    </div> 
+    
+    
 </main>
+
 <script src="/javascripts/scripts.js"></script>
 </body>
 </html>
