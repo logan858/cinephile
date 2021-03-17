@@ -78,6 +78,14 @@ main {
 }
 .films {
   display: none;
+  font-size: 9px;
+  transition-property: opacity;
+  transition-duration: 0.8s;
+  opacity: 0;
+}
+.films span {
+  margin-left: 10px;
+  color: rgb(192, 192, 192)
 }
 
 .list {

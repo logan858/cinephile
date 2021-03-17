@@ -21,12 +21,13 @@
     <div class="flex">
         <% for(i of lists) { %> 
             <% if(i.category === "director") { %> 
-            <div class="names dname"><span><%= i.name %></span></div>
-
-            <div>
-                <% for(let j of i.films) { %>
-                    <span><%= j.title %></span>
-                <% } %>
+            <div class="names dname">
+                <span><%= i.name %></span>
+                <div class="films">
+                    <% for(let j of i.films) { %>
+                        <span><%= j.title %> (<%= j.releasedate%>)</span><br>
+                    <% } %>
+                </div>
             </div>
 
             <% } %>
