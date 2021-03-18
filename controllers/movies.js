@@ -16,6 +16,7 @@ module.exports = {
     search,
     showPage,
     createList,
+    deleteFilm,
 }
 function index(req, res) {
     res.render("index", {
@@ -59,7 +60,6 @@ async function createList(req, res) {
     let userId = await User.findById(req.user.id)
     let lists = await List.find({user: req.user._id})
     let checker = x => x.some(y => y.name === req.body.name);
-
     //if list entry matches no previous ones, then:
     if(checker(lists) === false) {
         let newList = await List.create({
@@ -93,7 +93,6 @@ async function createList(req, res) {
             name: req.body.name,
             user: userId._id
         });
-        console.log(matchedName)
         let results = await fetch(BASE_URL_ID + req.params.id + API_KEY_ID)
         let movie = await results.json()
         let year = new Date(movie.release_date)
@@ -112,9 +111,28 @@ async function createList(req, res) {
         matchedName[0].films.push(listObj)
         await matchedName[0].save()
     }
-
     res.render("index", {
         user: req.user
     })
+}
 
+
+async function deleteFilm(req, res) {
+    let lists = await List.find({user: req.user._id})
+    console.log(req.user._id)
+    List.find({"films._id": req.params.id}, async function(err, lists) {
+        try {
+            console.log(lists)
+            lists[0].films.id(req.params.id).remove()
+            await lists[0].save()
+            res.render("index", {
+                user: req.user,
+            })
+        } catch (err) {
+            console.log(err)
+            return res.send("error")
+        }
+    })
+    // console.log(req.params.id)
+   
 }

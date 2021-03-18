@@ -11,6 +11,8 @@ router.get("/search", isLoggedIn, moviesCtrl.renderSearch)
 router.get("/show/:id", isLoggedIn, moviesCtrl.showPage)
 router.post("/show/:id/", isLoggedIn, moviesCtrl.createList)
 
+router.post("/delete/:id/", isLoggedIn, moviesCtrl.deleteFilm)
+
 router.get("/search/create", moviesCtrl.search)
 
 

@@ -20,28 +20,32 @@
 
     <div class="flex">
         <% for(i of lists) { %> 
-            <% if(i.category === "director") { %> 
+            <% if(i.category === "director" && i.films.length) { %> 
             <div class="names dname">
                 <span><%= i.name %></span>
                 <div class="films">
                     <% for(let j of i.films) { %>
-                        <span><%= j.title %> (<%= j.releasedate%>)</span><br> 
+                        <span><%= j.title %> (<%= j.releasedate%>) &nbsp;
+                            <form method="POST" id="form" action="/delete/<%=j.id%>">
+                                <button id="delete" type="submit"></button>
+                            </form></span><br> 
                         <span class="always-hidden"><%= j %></span>
                     <% } %>  
                 </div>
             </div>
             <% } %>
         <% } %>
-        
-        
 
         <% for(i of lists) { %> 
-            <% if(i.category === "editor") { %>  
+            <% if(i.category === "editor" && i.films.length) { %>  
             <div class="names ename">
                 <span><%= i.name %></span>
                 <div class="films">
                     <% for(let j of i.films) { %>
-                        <span><%= j.title %> (<%= j.releasedate%>)</span><br>
+                        <span><%= j.title %> (<%= j.releasedate%>)&nbsp;
+                            <form method="POST" id="form" action="/delete/<%=j.id%>">
+                                <button id="delete" type="submit"></button>
+                            </form></span><br>
                         <span class="always-hidden"><%= j %></span>
                     <% } %>
                 </div>
@@ -50,12 +54,15 @@
         <% } %>
         
         <% for(i of lists) { %> 
-            <% if(i.category === "cinematographer") { %>
+            <% if(i.category === "cinematographer" && i.films.length) { %>
             <div class="names cname">
                 <span><%= i.name %></span>
                 <div class="films">
                     <% for(let j of i.films) { %>
-                        <span><%= j.title %> (<%= j.releasedate%>)</span><br>
+                        <span><%= j.title %> (<%= j.releasedate%>)&nbsp;
+                            <form method="POST" id="form" action="/delete/<%=j.id%>">
+                                <button id="delete" type="submit"></button>
+                            </form></span><br>
                         <span class="always-hidden"><%= j %></span>
                     <% } %>
                 </div>
@@ -64,12 +71,15 @@
         <% } %>
        
         <% for(i of lists) { %> 
-            <% if(i.category === "writer") { %>
+            <% if(i.category === "writer" && i.films.length) { %>
             <div class="names wname">
                 <span><%= i.name %></span>
                 <div class="films">
                     <% for(let j of i.films) { %>
-                        <span><%= j.title %> (<%= j.releasedate%>)</span><br>
+                        <span><%= j.title %> (<%= j.releasedate%>)&nbsp;
+                            <form method="POST" id="form" action="/delete/<%=j.id%>">
+                                <button id="delete" type="submit"></button>
+                            </form></span><br>
                         <span class="always-hidden"><%= j %></span>
                     <% } %>
                 </div>
@@ -78,12 +88,15 @@
         <% } %>
         
         <% for(i of lists) { %> 
-            <% if(i.category === "composer") { %>
+            <% if(i.category === "composer" && i.films.length) { %>
             <div class="names coname">
                 <span><%= i.name %></span>
                 <div class="films">
                     <% for(let j of i.films) { %>
-                        <span><%= j.title %> (<%= j.releasedate%>)</span><br>
+                        <span><%= j.title %> (<%= j.releasedate%>)&nbsp;
+                            <form method="POST" id="form" action="/delete/<%=j.id%>">
+                                <button id="delete" type="submit"></button>
+                            </form></span><br>
                         <span class="always-hidden"><%= j %></span>
                     <% } %>
                 </div>
@@ -96,15 +109,9 @@
         <div class="film-details-box-two"></div>
         <div class="film-details-box-three"></div>
         <div class="film-details-box-four"></div>
-        <form id="rmv-btn" method="POST" action="">
-            <button type="submit">Watched</button>
-            <button type="submit">Remove from list</button>
-        </form>
     </div> 
     
-    
 </main>
-
 <script src="/javascripts/scripts.js"></script>
 </body>
 </html>
