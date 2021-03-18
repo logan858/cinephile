@@ -13,7 +13,7 @@
 * Streaming service options, displaying current streaming platforms that are showing the title
 * Scroll through results & improve searching features
 * Improve API responses, automate a greater number of user list creation steps
-* Turn into a SPA.  Currently only the list show page functions as a SPA.
+* Turn into a SPA.  Currently only the list show page functions 'similarly' to a SPA.
 
 ## Technologies Used
 * MongoDB, Express, Node.js
