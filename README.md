@@ -2,7 +2,7 @@
  This project is a webapp designed for users to create custom watch later lists that they can organize based off of Directors, Cinematographers, Editors, Writers & Composers.  Users can search via an API search, and add films to the app's connected database which will keep track of their lists.
  
 ## Screens
-![showpage](public/images/screens2.png "show page")
+![showpage](public/images/screens2.png "show page") ![lists page](public/images/screens1.png "lists page")
 
 ## Link
 * https://cinephilesapp.herokuapp.com/
