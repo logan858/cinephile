@@ -280,13 +280,32 @@ select {
 #results {
   grid-column: 1 / 4;
 }
-@media screen and (max-width: 700px) {
+#search-btn {
+  display: inline;
+}
+@media screen and (max-device-width: 500px), screen and (max-width: 500px) {
   main {
-    grid-template: repeat(13, 40px) 600px / 175px 150px;
-    font-size: 30px;
-    background-color: red;
+    padding: 25px;
+    grid-template: 30px 30px 30px 30px repeat(5, 1fr) / 1fr 1fr;
+    font-size: 24px;
+    grid-gap: 5px;
+  }
+  .role {
+    grid-column: 1 / 2;
+  } 
+  .films {
+    font-size: 16px;
+  }
+  #film-details {
+    grid-column: 1 / 4;
+    grid-row: 6 / 11;
+    font-size: 18px;
   }
   .flex {
-    grid-template: repeat(10, 1fr) 600px / 150pxx;
+    grid-row: 1 / 5;
+    grid-column: 2 / 3;
+    height: 200%;
+    width: 200%;
+    grid-template: repeat(5, 1fr) / 225px;
   }
 }

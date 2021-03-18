@@ -62,8 +62,9 @@ async function createList(req, res) {
     let checker = x => x.some(y => y.name === req.body.name);
     //if list entry matches no previous ones, then:
     if(checker(lists) === false) {
+        let formatedCategory = req.body.category.replace(/(^w{1})|(\s+\w{1})/g, letter => letter.toUpperCase()) 
         let newList = await List.create({
-            category: req.body.category,
+            category: formatedCategory,
             name: req.body.name,
             image: null,
             quote: null,
