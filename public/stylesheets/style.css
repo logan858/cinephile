@@ -279,5 +279,12 @@ select {
 }
 #results {
   grid-column: 1 / 4;
-
+}
+@media (max-width: 550px) {
+  main {
+    grid-template: repeat(13, 40px) 600px / 175px 150px;
+  }
+  .flex {
+    grid-template: repeat(10, 1fr) 600px / 150pxx;
+  }
 }
