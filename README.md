@@ -9,6 +9,7 @@
 
 ## Future Enhancements
 * Create a watched list, to keep track of films the user has finished watching
+* Create custom watch later lists
 * Streaming service options, displaying current streaming platforms that are showing the title
 * Scroll through results & improve searching features
 * Improve API responses, automate a greater number of user list creation steps
