@@ -116,13 +116,9 @@ async function createList(req, res) {
     })
 }
 
-
 async function deleteFilm(req, res) {
-    let lists = await List.find({user: req.user._id})
-    console.log(req.user._id)
     List.find({"films._id": req.params.id}, async function(err, lists) {
         try {
-            console.log(lists)
             lists[0].films.id(req.params.id).remove()
             await lists[0].save()
             res.render("index", {
@@ -132,7 +128,5 @@ async function deleteFilm(req, res) {
             console.log(err)
             return res.send("error")
         }
-    })
-    // console.log(req.params.id)
-   
+    }) 
 }
