@@ -39,9 +39,9 @@ async function search(req, res) {
     let inputSearch = BASE_URL + API_KEY + req.query.title;
     let results = await fetch(inputSearch)
     let body = await results.json()
-    let topThree = body.results.slice(0, 4)
+    let topTen = body.results.slice(0, 10)
     res.render("results", {
-        data: topThree, 
+        data: topTen, 
         user: req.user,
     })
 }
