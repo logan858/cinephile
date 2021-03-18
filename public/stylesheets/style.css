@@ -280,7 +280,7 @@ select {
 #results {
   grid-column: 1 / 4;
 }
-@media only screen and (max-width: 350px) {
+@media screen and (max-width: 350px) {
   main {
     grid-template: repeat(13, 40px) 600px / 175px 150px;
     font-size: 30px;
