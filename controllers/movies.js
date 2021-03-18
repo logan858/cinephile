@@ -59,12 +59,13 @@ async function showPage(req, res) {
 async function createList(req, res) {
     let userId = await User.findById(req.user.id)
     let lists = await List.find({user: req.user._id})
-    let checker = x => x.some(y => y.name === req.body.name);
+    let formatedName = req.body.name.replace(/(^w{1})|(\s+\w{1})/g, letter => letter.toUpperCase()) 
+    let checker = x => x.some(y => y.name === formatedName);
+
     //if list entry matches no previous ones, then:
     if(checker(lists) === false) {
-        let formatedCategory = req.body.category.replace(/(^w{1})|(\s+\w{1})/g, letter => letter.toUpperCase()) 
         let newList = await List.create({
-            category: formatedCategory,
+            category: req.body.category,
             name: req.body.name,
             image: null,
             quote: null,
