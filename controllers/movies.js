@@ -3,9 +3,9 @@ const User = require("../models/user");
 const List = require("../models/list");
 
 BASE_URL = "https://api.themoviedb.org/3/search/movie"
-API_KEY = "?api_key=1671706fa83059c7ac996122901fc15c&query="
+API_KEY = unknown_key
 BASE_URL_ID = "https://api.themoviedb.org/3/movie/"
-API_KEY_ID = "?api_key=1671706fa83059c7ac996122901fc15c"
+API_KEY_ID = unknown_key
 
 const fetch = require("node-fetch")
 
